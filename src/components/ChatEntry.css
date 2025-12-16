@@ -30,13 +30,14 @@ button {
   background-color: #fefea2;
 }
 
-.chat-entry .entry-name {
+.chat-entry .sender {
   font-size: medium;
   margin-bottom: 0.5rem;
+  color:black
 }
 
-.chat-entry .entry-time {
-  color: #bbb;
+.chat-entry .time {
+  color: #010000;
   font-size: x-small;
   margin-bottom: 0.1rem;
   margin-right: 0.5rem;
@@ -56,10 +57,12 @@ button {
 /* "local" messages are shown on the left side */
 .chat-entry.local {
   text-align: left;
+  color:green;
 }
 
-.chat-entry.local .entry-time {
-  text-align: right;
+.chat-entry.local .time {
+  text-align: left;
+  color:blue;
 }
 
 .chat-entry.local .entry-bubble::before {
