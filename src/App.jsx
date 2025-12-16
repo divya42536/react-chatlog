@@ -3,6 +3,13 @@ import DATA from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import { useState } from 'react';
 
+const toggleLike = (entry) => {
+  return { ...entry, liked: !entry.liked };
+};
+
+const countTotalLikes = (entryData) => {
+  return entryData.reduce((total, entry) => total + (entry.liked ? 1 : 0), 0);
+};
 function App() {
   const [entryData, setEntryData] = useState(DATA);
 
@@ -10,13 +17,12 @@ function App() {
     setEntryData(preventryData =>
       preventryData.map(entry =>
         entry.id === id
-          ? { ...entry, liked: !entry.liked }
-          : entry
+          ? toggleLike(entry) : entry
       )
     );
   };
 
-  const totalLikes = entryData.filter(entry => entry.liked).length;
+  const totalLikes = countTotalLikes(entryData);
 
   return (
     <div id="App">

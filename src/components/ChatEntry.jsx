@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 const ChatEntry = ({ id, sender, body, timeStamp, liked, onLike }) => {
   return (
     <div className="chat-entry">
-      <h2>{sender}</h2>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
-        <p><TimeStamp time={timeStamp}></TimeStamp></p>
+        <p className="entry-time"><TimeStamp time={timeStamp}></TimeStamp></p>
         <button className="like" onClick={() => onLike(id)}>{liked ? '❤️' : '🤍'}</button>
       </section>
     </div>
